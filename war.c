@@ -1,8 +1,11 @@
 #include <stdio.h>
+#include <string.h>
 
 #define OPCAO_CADASTRAR_TERRITORIOS 1
 #define OPCAO_LISTAR_TERRITORIOS 2
 #define OPCAO_SAIR 0
+
+#define MAX_TERRITORIOS 5
 
 void limparBufferEntrada()
 {
@@ -23,9 +26,17 @@ void selecionarOpcao(int *opcaoSelecionada)
     limparBufferEntrada();
 }
 
+struct Territorio
+{
+    char nome[50];
+    char corExercito[6];
+    int numeroTropas;
+};
+
 int main()
 {
-    int opcaoSelecionada;
+    int opcaoSelecionada, totalTerritorios = 0;
+    struct Territorio territorios[MAX_TERRITORIOS];
 
     do
     {
@@ -34,6 +45,19 @@ int main()
         switch (opcaoSelecionada)
         {
         case OPCAO_CADASTRAR_TERRITORIOS:
+            if (totalTerritorios < MAX_TERRITORIOS)
+            {
+                for (int i = 0; i <= MAX_TERRITORIOS; i++)
+                {
+                    printf("--- Cadastrando Territorio %d ---\n", i + 1);
+                    // CADASTRO DO TERRITORIO...
+                    totalTerritorios++;
+                }
+            }
+            else
+            {
+                printf("Limite de territorios excedido.\n");
+            }
             break;
         case OPCAO_LISTAR_TERRITORIOS:
             break;
