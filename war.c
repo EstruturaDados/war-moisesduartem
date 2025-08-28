@@ -78,6 +78,20 @@ int main()
             }
             break;
         case OPCAO_LISTAR_TERRITORIOS:
+            if (totalTerritorios > 0)
+            {
+                for (int i = 0; i < totalTerritorios; i++)
+                {
+                    printf("TERRITORIO %d\n", i + 1);
+                    printf("- Nome: %s\n", territorios[i].nome);
+                    printf("- Dominado por: Exercito %s\n", territorios[i].corExercito);
+                    printf("- Tropas: %d\n\n", territorios[i].numeroTropas);
+                }
+            }
+            else
+            {
+                printf("Nenhum territorio encontrado.\n");
+            }
             break;
         default:
             break;
